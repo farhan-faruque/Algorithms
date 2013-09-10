@@ -4,10 +4,15 @@ import com.ff.linkedlist.LinkedList;
 
 public class CircularLinkedList implements LinkedList {
 
+	private int size;
+	private CircularLinkedNode head;
+	
 	public CircularLinkedList() 
 	{
-		
+		size = 0;
+		head = null;		
 	}
+	
 	@Override
 	public void addFirst(int data) {
 		
@@ -60,14 +65,16 @@ public class CircularLinkedList implements LinkedList {
 	}
 
 	@Override
-	public void show() {
+	public void show() 
+	{
+		
 		
 	}
 
 	@Override
 	public int getSize() 
 	{		
-		return 0;
+		return size;
 	}
 
 }
