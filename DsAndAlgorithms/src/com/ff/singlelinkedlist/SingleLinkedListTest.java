@@ -1,5 +1,6 @@
 package com.ff.singlelinkedlist;
 
+
 public class SingleLinkedListTest {
 
 	public static void main(String args[])
@@ -12,8 +13,7 @@ public class SingleLinkedListTest {
 		linkedList.addLast(30);
         linkedList.add(1,14);
         linkedList.show();
-		linkedList.remove(5);
-		linkedList.show();
+		System.out.print("\n"+linkedList.get(2));
 		
 
 	}
