@@ -1,4 +1,4 @@
-package com.ff.linkedlist;
+package com.ff.singlelinkedlist;
 
 public interface LinkedList 
 {
