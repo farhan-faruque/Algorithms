@@ -1,4 +1,4 @@
-package com.ff.singlelinkedlist;
+package com.ff.linkedlist.single;
 
 public class SingleLinkedNode 
 {
