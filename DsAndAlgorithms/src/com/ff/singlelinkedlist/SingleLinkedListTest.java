@@ -13,7 +13,7 @@ public class SingleLinkedListTest {
 		linkedList.addLast(30);
         linkedList.add(1,14);
         linkedList.show();
-		System.out.print("\n"+linkedList.get(2));
+		//System.out.print("\n"+linkedList.getPos(40));
 		
 
 	}

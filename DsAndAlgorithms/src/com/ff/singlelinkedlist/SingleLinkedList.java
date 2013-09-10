@@ -147,7 +147,6 @@ public class SingleLinkedList
 			}
 		}
 		return -1;
-
 	}
 
 	public boolean removeFirst()
@@ -223,9 +222,24 @@ public class SingleLinkedList
 		return false;
 	}
 
-	public int find(int data)
+	public int getPos(int data)
 	{
-		return 0;
+		if(head != null)
+		{
+			SingleLinkedNode tempNode = head;
+			int pos = 0;
+			while (tempNode != null)
+			{
+				if(tempNode.data == data)
+				{
+					return pos;					
+				}
+				tempNode = tempNode.next;
+				pos++;
+			}
+			
+		}
+		return -1;
 	}
 
 	public void show()
