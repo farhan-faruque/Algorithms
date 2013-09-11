@@ -56,7 +56,7 @@ public class SingleLinkedList
 		}
 		size++;
 	}
-
+	//need some mod;
 	public boolean add(int pos,int data)
 	{
 		if(pos  >= 0 && pos < size)

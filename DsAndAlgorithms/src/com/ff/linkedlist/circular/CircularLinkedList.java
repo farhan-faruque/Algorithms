@@ -57,7 +57,43 @@ public class CircularLinkedList implements LinkedList
 	}
 
 	@Override
-	public boolean add(int data, int pos) {
+	public boolean add(int data, int pos) 
+	{
+		if(pos >=0 && pos <= size)
+		{
+			if(pos == 0)
+			{
+				addFirst(data);
+			}else if (pos == size) 
+			{
+				addLast(data);				
+			}else 
+			{
+				CircularLinkedNode currentNode = head;
+				CircularLinkedNode prevNode = head;
+				
+				int tempPos = 0;
+				
+				do 
+				{
+					if(tempPos == pos)
+					{
+						CircularLinkedNode node = new CircularLinkedNode(data);
+						node.next = prevNode.next;
+						prevNode.next = node;
+						size++;
+						return true;
+						
+					}
+					prevNode = currentNode;
+					currentNode = currentNode.next;
+					tempPos++;
+					
+				} while (currentNode != head);
+				
+			}
+			
+		}
 		return false;
 	}
 
@@ -101,6 +137,37 @@ public class CircularLinkedList implements LinkedList
 	@Override
 	public boolean remove(int pos) 
 	{
+		if(head != null && pos >=0 && pos < size)
+		{
+			if(pos ==0)
+			{
+				removeFirst();
+			}else if (pos == size -1) 
+			{
+				removeLast();				
+			}else 
+			{
+				CircularLinkedNode currrentNode = head;
+				CircularLinkedNode prevNode = head;
+				int currentPos = 0;
+				do 
+				{
+					if(currentPos == pos)
+					{
+						prevNode.next = currrentNode.next;
+						currrentNode = null;
+						size--;
+						return true;
+					}
+					
+					prevNode = currrentNode;
+					currrentNode = currrentNode.next;
+					currentPos++;
+				} while (currrentNode != head);
+				
+			}
+			
+		}
 		return false;
 	}
 
@@ -110,9 +177,8 @@ public class CircularLinkedList implements LinkedList
 		if(head != null)
 		{		
 			return head.data;		
-
 		}
-
+		
 		return -1;
 	}
 
@@ -129,12 +195,10 @@ public class CircularLinkedList implements LinkedList
 				CircularLinkedNode tempNode = head;				
 				while (tempNode != tail) 
 				{
-					if(tempNode.next == head)
-					{
-						return tempNode.data;
-					}
 					tempNode = tempNode.next;					
 				}
+				
+				return tempNode.data;
 			}
 
 		}

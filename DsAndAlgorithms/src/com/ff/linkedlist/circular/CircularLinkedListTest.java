@@ -12,9 +12,13 @@ public class CircularLinkedListTest
 		linkedList.addFirst(5);
 		linkedList.addLast(15);
 		linkedList.addLast(25);
-		
-		linkedList.removeLast();
+	
 		linkedList.show();
+		//linkedList.add(50, 3);
+		linkedList.remove(1);
+		linkedList.show();
+		
+		//System.out.print(linkedList.getLast());
 	}
 	
 }
