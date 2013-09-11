@@ -61,17 +61,45 @@ public class CircularLinkedList implements LinkedList {
 	}
 
 	@Override
-	public boolean removeFirst() {
+	public boolean removeFirst() 
+	{
+		if(head != null)
+		{
+			CircularLinkedNode tempNode = head;
+			head = head.next;
+			tail.next = head;
+			tempNode = null;			
+			size --;			
+			return true;
+		}
 		return false;
 	}
 
 	@Override
-	public boolean removeLast() {
+	public boolean removeLast()
+	{
+		if(head != null)
+		{
+			CircularLinkedNode tempNode = head;
+			while (tempNode != tail)
+			{
+				if(tempNode.next ==  tail)
+				{
+					tail = tempNode;
+					tail.next = head;
+					tempNode = null;
+					size--;
+					return true;
+				}
+				tempNode = tempNode.next;				
+			}
+		}
 		return false;
 	}
 
 	@Override
-	public boolean remove(int pos) {
+	public boolean remove(int pos) 
+	{
 		return false;
 	}
 
@@ -93,16 +121,23 @@ public class CircularLinkedList implements LinkedList {
 	@Override
 	public void show() 
 	{
-		CircularLinkedNode tempNode = head;
-
-		while (tempNode != tail) 
+		if(head != null)
 		{
-			System.out.print(" "+tempNode.data);
+			CircularLinkedNode tempNode = head;
+			while (tempNode != tail) 
+			{
+				System.out.print(" "+tempNode.data);
 
-			tempNode = tempNode.next;
+				tempNode = tempNode.next;
+			}
+			System.out.print(" "+tempNode.data);
+			System.out.println("\n List Size:"+size);
+
+
+			if(tail != null)
+				System.out.println(" Tail next:"+tail.next.data);
 		}
-		System.out.print(" "+tempNode.data);
-		System.out.println("\n List Size:"+size);		
+
 	}
 
 	@Override
