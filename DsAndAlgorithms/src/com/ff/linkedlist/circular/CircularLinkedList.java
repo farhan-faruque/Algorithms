@@ -2,7 +2,8 @@ package com.ff.linkedlist.circular;
 
 import com.ff.linkedlist.LinkedList;
 
-public class CircularLinkedList implements LinkedList {
+public class CircularLinkedList implements LinkedList 
+{
 
 	private int size;
 	private CircularLinkedNode head;
@@ -104,13 +105,40 @@ public class CircularLinkedList implements LinkedList {
 	}
 
 	@Override
-	public int getFirst() {
-		return 0;
+	public int getFirst() 
+	{
+		if(head != null)
+		{		
+			return head.data;		
+
+		}
+
+		return -1;
 	}
 
 	@Override
-	public int getLast() {
-		return 0;
+	public int getLast() 
+	{
+		if(head != null)
+		{
+			if(head == tail)
+			{
+				return head.data;
+			}else 
+			{
+				CircularLinkedNode tempNode = head;				
+				while (tempNode != tail) 
+				{
+					if(tempNode.next == head)
+					{
+						return tempNode.data;
+					}
+					tempNode = tempNode.next;					
+				}
+			}
+
+		}
+		return -1;
 	}
 
 	@Override
