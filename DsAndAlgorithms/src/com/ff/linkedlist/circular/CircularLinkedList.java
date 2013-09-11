@@ -6,27 +6,53 @@ public class CircularLinkedList implements LinkedList {
 
 	private int size;
 	private CircularLinkedNode head;
-	
+	private CircularLinkedNode tail;
+
 	public CircularLinkedList() 
 	{
 		size = 0;
 		head = null;		
-	}
-	
-	@Override
-	public void addFirst(int data) {
-		
-		
+		tail = null;
 	}
 
 	@Override
-	public void addLast(int data) {
-		
+	public void addFirst(int data) 
+	{
+		CircularLinkedNode node = new CircularLinkedNode(data);
+		if(head == null)
+		{
+			head = node;
+			tail = node;
+		}else 
+		{
+			node.next = head;
+			head = node;
+		}
+		tail.next = head;		
+		size++;		
 	}
 
 	@Override
-	public void add(int data) {
-		
+	public void addLast(int data) 
+	{
+		if(head == null)
+		{
+			addFirst(data);			
+		}else 
+		{
+			CircularLinkedNode node = new CircularLinkedNode(data);
+			tail.next = node;			
+			tail = node;
+			tail.next = head;
+			size++;
+		}	
+
+	}
+
+	@Override
+	public void add(int data) 
+	{
+		addLast(data);
 	}
 
 	@Override
@@ -67,8 +93,16 @@ public class CircularLinkedList implements LinkedList {
 	@Override
 	public void show() 
 	{
-		
-		
+		CircularLinkedNode tempNode = head;
+
+		while (tempNode != tail) 
+		{
+			System.out.print(" "+tempNode.data);
+
+			tempNode = tempNode.next;
+		}
+		System.out.print(" "+tempNode.data);
+		System.out.println("\n List Size:"+size);		
 	}
 
 	@Override
