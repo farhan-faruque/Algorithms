@@ -1,86 +1,155 @@
 package com.ff.linkedlist.doubly;
 
+
+import java.util.List;
+
 import com.ff.linkedlist.LinkedList;
 
 public class DoublyLinkedList implements LinkedList
 {
+	DoublyLinkedNode head;
+	DoublyLinkedNode tail;
+	int size;
 
 	public DoublyLinkedList() 
 	{
-		
-	}
-	
-	@Override
-	public void addFirst(int data) {
-		// TODO Auto-generated method stub
-		
+		head = null;
+		tail = null;
+		size = 0;
 	}
 
 	@Override
-	public void addLast(int data) {
-		// TODO Auto-generated method stub
-		
+	public void addFirst(int data) 
+	{
+		DoublyLinkedNode node = new DoublyLinkedNode(data);
+
+		if(isEmpty())
+		{
+			head = tail = node;			
+		}else
+		{
+			node.next = head;
+			head.prev = node;
+			head = node;			
+		}
+		size++;
 	}
 
 	@Override
-	public void add(int data) {
-		// TODO Auto-generated method stub
-		
+	public void addLast(int data) 
+	{
+		DoublyLinkedNode node = new DoublyLinkedNode(data);
+
+		if(isEmpty())
+		{
+			addFirst(data);
+		}else
+		{
+			tail.next = node;
+			node.prev = tail;
+			tail = node;			
+		}
+		size++;
 	}
 
 	@Override
-	public boolean add(int data, int pos) {
-		// TODO Auto-generated method stub
+	public void add(int data) 
+	{
+
+	}
+
+	@Override
+	public boolean add(int data, int pos) 
+	{
 		return false;
 	}
 
 	@Override
-	public boolean removeFirst() {
-		// TODO Auto-generated method stub
+	public boolean removeFirst() 
+	{
 		return false;
 	}
 
 	@Override
-	public boolean removeLast() {
-		// TODO Auto-generated method stub
+	public boolean removeLast() 
+	{
 		return false;
 	}
 
 	@Override
-	public boolean remove(int pos) {
-		// TODO Auto-generated method stub
+	public boolean remove(int pos) 
+	{
 		return false;
 	}
 
 	@Override
-	public int getFirst() {
-		// TODO Auto-generated method stub
+	public int getFirst() 
+	{
 		return 0;
 	}
 
 	@Override
-	public int getLast() {
-		// TODO Auto-generated method stub
+	public int getLast() 
+	{
 		return 0;
 	}
 
 	@Override
-	public int find(int pos) {
-		// TODO Auto-generated method stub
+	public int find(int pos)
+	{
 		return 0;
 	}
 
 	@Override
-	public void show() {
-		// TODO Auto-generated method stub
-		
+	public void show()
+	{
+		if(!isEmpty())
+		{
+			DoublyLinkedNode currentNode = head;
+			System.out.print("List:");
+			while (currentNode != null)
+			{
+				System.out.print(" "+currentNode.data);
+				currentNode = currentNode.next;
+
+			}
+			System.out.print("\nSize: "+size);
+		}
+	}
+
+	public void showReverse()
+	{
+		if(!isEmpty())
+		{
+			DoublyLinkedNode currentNode = tail;
+			
+			System.out.print("\nReverse:");
+			while (currentNode != null)
+			{
+				System.out.print(" "+currentNode.data);
+				currentNode = currentNode.prev;
+
+			}
+			//System.out.print("\n Size:"+size);
+		}
 	}
 
 	@Override
-	public int getSize() {
-		// TODO Auto-generated method stub
+	public int getSize() 
+	{		
 		return 0;
 	}
-	
+
+	@Override
+	public boolean isEmpty() 
+	{	
+		return size == 0 ? true : false;
+	}
+
+	public List<Integer> reverse()
+	{
+		return null;
+
+	}
 
 }

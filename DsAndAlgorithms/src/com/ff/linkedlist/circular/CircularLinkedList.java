@@ -238,4 +238,10 @@ public class CircularLinkedList implements LinkedList
 		return size;
 	}
 
+	@Override
+	public boolean isEmpty() 
+	{	
+		return size == 0 ? true : false;
+	}
+
 }

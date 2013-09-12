@@ -16,5 +16,6 @@ public interface LinkedList
 	int find(int pos);
 	void show();
 	int getSize();
+	boolean isEmpty();
 
 }
