@@ -1,6 +1,7 @@
 package com.ff.linkedlist.doubly;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.ff.linkedlist.LinkedList;
@@ -55,24 +56,78 @@ public class DoublyLinkedList implements LinkedList
 	@Override
 	public void add(int data) 
 	{
-
+		addFirst(data);
 	}
 
 	@Override
 	public boolean add(int data, int pos) 
 	{
+		if(pos >=0 && pos <=size)
+		{
+			if(isEmpty() || pos == 0)
+			{
+				addFirst(data);				
+			}else if (pos == size) {
+				addLast(data);
+			}else 
+			{
+				DoublyLinkedNode currentNode = head;
+				
+			}			
+			return true;
+		}
 		return false;
 	}
 
 	@Override
 	public boolean removeFirst() 
 	{
+		if(!isEmpty())
+		{
+			if(head.next == null)
+			{
+				head = null;
+			}
+			else 
+			{
+				DoublyLinkedNode tempNode = head;
+				head = head.next;
+				head.prev = null;
+				tempNode = null;	
+			}	
+			size--;
+			return true;
+		}
 		return false;
 	}
 
 	@Override
 	public boolean removeLast() 
 	{
+		if(!isEmpty())
+		{
+			if(head.next == null)
+			{
+				removeFirst();
+			}else 
+			{
+				DoublyLinkedNode currentNode = head;
+				
+				while (currentNode != null) 
+				{
+					if(currentNode.next == null)
+					{
+						tail = currentNode.prev;
+						tail.next = null;
+						currentNode = null;
+						size--;
+						return true;
+					}
+					currentNode = currentNode.next;					
+				}
+			}
+			
+		}
 		return false;
 	}
 
@@ -85,13 +140,13 @@ public class DoublyLinkedList implements LinkedList
 	@Override
 	public int getFirst() 
 	{
-		return 0;
+		return !isEmpty() ? head.data : -1;		
 	}
 
 	@Override
 	public int getLast() 
 	{
-		return 0;
+		return !isEmpty() ? tail.data : -1;			
 	}
 
 	@Override
@@ -137,7 +192,7 @@ public class DoublyLinkedList implements LinkedList
 	@Override
 	public int getSize() 
 	{		
-		return 0;
+		return size;
 	}
 
 	@Override
@@ -148,6 +203,21 @@ public class DoublyLinkedList implements LinkedList
 
 	public List<Integer> reverse()
 	{
+		if(!isEmpty())
+		{
+			List<Integer> reverseList = new ArrayList<Integer>();
+			
+			DoublyLinkedNode currentNode = tail;
+			
+			System.out.print("\nReverse:");
+			while (currentNode != null)
+			{
+				//System.out.print(" "+currentNode.data);
+				reverseList.add(currentNode.data);
+				currentNode = currentNode.prev;
+			}
+			
+		}
 		return null;
 
 	}

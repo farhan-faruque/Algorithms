@@ -1,7 +1,5 @@
 package com.ff.linkedlist.doubly;
 
-import com.ff.linkedlist.LinkedList;
-
 public class DoublyLinkedListTest
 {
 	public static void main(String [] args)
@@ -12,6 +10,9 @@ public class DoublyLinkedListTest
 		linkedList.addFirst(30);
 		linkedList.addLast(5);
 		
+		linkedList.show();
+		System.out.println("\nAfter Last Remove");
+		linkedList.removeLast();
 		linkedList.show();
 		linkedList.showReverse();
 		
