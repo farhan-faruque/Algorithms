@@ -71,10 +71,25 @@ public class DoublyLinkedList implements LinkedList
 				addLast(data);
 			}else 
 			{
+				DoublyLinkedNode node = new DoublyLinkedNode(data);
 				DoublyLinkedNode currentNode = head;
-				
+				int currentPos = 0;
+				while(currentNode != null)
+				{
+					if(pos == currentPos)
+					{
+						currentNode.prev.next = node;
+						node.prev = currentNode.prev;
+						node.next = currentNode;
+						currentNode.prev = node;
+						
+						size++;
+						return true;						
+					}
+					currentNode = currentNode.next;
+					currentPos++;
+				}
 			}			
-			return true;
 		}
 		return false;
 	}

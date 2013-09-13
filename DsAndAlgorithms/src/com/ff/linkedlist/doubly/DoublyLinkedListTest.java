@@ -11,8 +11,8 @@ public class DoublyLinkedListTest
 		linkedList.addLast(5);
 		
 		linkedList.show();
-		System.out.println("\nAfter Last Remove");
-		linkedList.removeLast();
+		System.out.println("\nAfter add pos 2:");
+		linkedList.add(49, 2);
 		linkedList.show();
 		linkedList.showReverse();
 		
