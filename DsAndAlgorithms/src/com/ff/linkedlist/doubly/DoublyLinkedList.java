@@ -149,6 +149,37 @@ public class DoublyLinkedList implements LinkedList
 	@Override
 	public boolean remove(int pos) 
 	{
+		if(!isEmpty())
+		{
+			if(pos >=0 && pos < size)
+			{
+				if(pos == 0)
+				{
+					removeFirst();
+				}else if (pos == size -1) 
+				{
+					removeLast();					
+				}else 
+				{
+					DoublyLinkedNode currentNode = head;
+					int currentPos = 0;
+					
+					while (currentNode != null) 
+					{
+						if(pos == currentPos)
+						{
+							currentNode.prev.next = currentNode.next;
+							currentNode.next.prev = currentNode.prev; 
+							currentNode = null;
+							size--;
+							return true;
+						}
+						currentNode = currentNode.next;
+						currentPos++;
+					}					
+				}
+			}
+		}
 		return false;
 	}
 
@@ -167,7 +198,23 @@ public class DoublyLinkedList implements LinkedList
 	@Override
 	public int find(int pos)
 	{
-		return 0;
+		if(pos >=0 && pos <size)
+		{
+			int currentPos = 0;
+			DoublyLinkedNode currentNode = head;
+			
+			while (currentNode != null)
+			{
+				if(pos == currentPos)
+				{
+					return currentNode.data;
+				}
+				currentNode = currentNode.next;
+				currentPos++;
+			}
+			
+		}
+		return -1;
 	}
 
 	@Override
