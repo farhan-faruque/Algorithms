@@ -7,3 +7,10 @@ Data Structure and Algorithms (JAVA)
   *Circular Linked List.
   
   *Doubly Linked List.
+
+  *Doubly Circular Linked list.
+
+##Tree
+
+##Graph
+
