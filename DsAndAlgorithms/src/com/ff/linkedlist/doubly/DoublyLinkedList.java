@@ -82,7 +82,7 @@ public class DoublyLinkedList implements LinkedList
 						node.prev = currentNode.prev;
 						node.next = currentNode;
 						currentNode.prev = node;
-						
+
 						size++;
 						return true;						
 					}
@@ -127,7 +127,7 @@ public class DoublyLinkedList implements LinkedList
 			}else 
 			{
 				DoublyLinkedNode currentNode = head;
-				
+
 				while (currentNode != null) 
 				{
 					if(currentNode.next == null)
@@ -141,7 +141,7 @@ public class DoublyLinkedList implements LinkedList
 					currentNode = currentNode.next;					
 				}
 			}
-			
+
 		}
 		return false;
 	}
@@ -149,35 +149,33 @@ public class DoublyLinkedList implements LinkedList
 	@Override
 	public boolean remove(int pos) 
 	{
-		if(!isEmpty())
+		if(!isEmpty() && pos >=0 && pos < size)
 		{
-			if(pos >=0 && pos < size)
+
+			if(pos == 0)
 			{
-				if(pos == 0)
+				removeFirst();
+			}else if (pos == size -1) 
+			{
+				removeLast();					
+			}else 
+			{
+				DoublyLinkedNode currentNode = head;
+				int currentPos = 0;
+
+				while (currentNode != null) 
 				{
-					removeFirst();
-				}else if (pos == size -1) 
-				{
-					removeLast();					
-				}else 
-				{
-					DoublyLinkedNode currentNode = head;
-					int currentPos = 0;
-					
-					while (currentNode != null) 
+					if(pos == currentPos)
 					{
-						if(pos == currentPos)
-						{
-							currentNode.prev.next = currentNode.next;
-							currentNode.next.prev = currentNode.prev; 
-							currentNode = null;
-							size--;
-							return true;
-						}
-						currentNode = currentNode.next;
-						currentPos++;
-					}					
-				}
+						currentNode.prev.next = currentNode.next;
+						currentNode.next.prev = currentNode.prev; 
+						currentNode = null;
+						size--;
+						return true;
+					}
+					currentNode = currentNode.next;
+					currentPos++;
+				}					
 			}
 		}
 		return false;
@@ -198,11 +196,11 @@ public class DoublyLinkedList implements LinkedList
 	@Override
 	public int find(int pos)
 	{
-		if(pos >=0 && pos <size)
+		if(!isEmpty() && pos >=0 && pos <size)
 		{
 			int currentPos = 0;
 			DoublyLinkedNode currentNode = head;
-			
+
 			while (currentNode != null)
 			{
 				if(pos == currentPos)
@@ -212,7 +210,6 @@ public class DoublyLinkedList implements LinkedList
 				currentNode = currentNode.next;
 				currentPos++;
 			}
-			
 		}
 		return -1;
 	}
@@ -239,7 +236,7 @@ public class DoublyLinkedList implements LinkedList
 		if(!isEmpty())
 		{
 			DoublyLinkedNode currentNode = tail;
-			
+
 			System.out.print("\nReverse:");
 			while (currentNode != null)
 			{
@@ -268,9 +265,9 @@ public class DoublyLinkedList implements LinkedList
 		if(!isEmpty())
 		{
 			List<Integer> reverseList = new ArrayList<Integer>();
-			
+
 			DoublyLinkedNode currentNode = tail;
-			
+
 			System.out.print("\nReverse:");
 			while (currentNode != null)
 			{
@@ -278,10 +275,8 @@ public class DoublyLinkedList implements LinkedList
 				reverseList.add(currentNode.data);
 				currentNode = currentNode.prev;
 			}
-			
 		}
 		return null;
-
 	}
 
 }
