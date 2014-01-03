@@ -58,14 +58,13 @@ public class LinkedStack<T>  implements Stack<T>
 	public void show() 
 	{
 		StackNode<T> tempNode = head;
-		
-		while (tempNode.getNext() != null) 
+		do 
 		{
-			toString();
+			System.out.print(tempNode.getInfo().toString()+" ");
 			tempNode = tempNode.getNext();					
-		}
-	}
-	
+		}while (tempNode.getNext() != null);
+		System.out.print(tempNode.getInfo().toString()+" ");		
+	}	
 
 	@Override
 	public int size() 
