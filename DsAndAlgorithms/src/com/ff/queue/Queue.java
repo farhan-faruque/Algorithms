@@ -6,4 +6,5 @@ public interface Queue<T>
 	void enque(T t);
 	T deque();
 	boolean isEmpty();
+	void show();
 }

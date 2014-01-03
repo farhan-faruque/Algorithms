@@ -4,7 +4,7 @@ public class LinkedStack<T>  implements Stack<T>
 {
 	private int size;
 	private Node<T> head;
-	
+
 	public LinkedStack() 
 	{
 		size = 0;
@@ -25,7 +25,7 @@ public class LinkedStack<T>  implements Stack<T>
 			System.out.println("Null Objcet");
 			throw new NullPointerException();
 		}
-		
+
 		if(head == null)
 		{
 			head = new Node<T>(t);
@@ -56,14 +56,14 @@ public class LinkedStack<T>  implements Stack<T>
 
 	@Override
 	public void show() 
-	{
+	{	
 		Node<T> tempNode = head;
 		do 
 		{
 			System.out.print(tempNode.getInfo().toString()+" ");
 			tempNode = tempNode.next;					
-		}while (tempNode.next != null);
-		System.out.print(tempNode.getInfo().toString()+" ");		
+		}while (tempNode != null);
+
 	}	
 
 	@Override
@@ -71,6 +71,6 @@ public class LinkedStack<T>  implements Stack<T>
 	{
 		return size;
 	}
-	
+
 
 }
