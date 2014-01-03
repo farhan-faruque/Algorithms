@@ -3,7 +3,7 @@ package com.ff.stack;
 public class LinkedStack<T>  implements Stack<T>
 {
 	private int size;
-	private StackNode<T> head;
+	private Node<T> head;
 	
 	public LinkedStack() 
 	{
@@ -28,10 +28,10 @@ public class LinkedStack<T>  implements Stack<T>
 		
 		if(head == null)
 		{
-			head = new StackNode<T>(t);
+			head = new Node<T>(t);
 		}else 
 		{
-			StackNode<T> node = new StackNode<T>(t,head);
+			Node<T> node = new Node<T>(t,head);
 			head = node;
 		}	
 		size++;
@@ -46,9 +46,9 @@ public class LinkedStack<T>  implements Stack<T>
 			return null;
 		}else 
 		{			
-			StackNode<T> tempHead = head;
+			Node<T> tempHead = head;
 			T data = tempHead.getInfo();
-			head = head.getNext();
+			head = head.next;
 			size--;
 			return data;
 		}
@@ -57,12 +57,12 @@ public class LinkedStack<T>  implements Stack<T>
 	@Override
 	public void show() 
 	{
-		StackNode<T> tempNode = head;
+		Node<T> tempNode = head;
 		do 
 		{
 			System.out.print(tempNode.getInfo().toString()+" ");
-			tempNode = tempNode.getNext();					
-		}while (tempNode.getNext() != null);
+			tempNode = tempNode.next;					
+		}while (tempNode.next != null);
 		System.out.print(tempNode.getInfo().toString()+" ");		
 	}	
 
