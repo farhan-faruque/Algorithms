@@ -67,6 +67,27 @@ public class BinarySearchTree
         }
     }
 
+    public boolean find(int key)
+    {
+        if (root == null)
+            return false;
+
+        BinaryTreeNode node = root;
+        while (node != null)
+        {
+            if(node.key == key)
+                return true;
+            else if (key > node.key)
+                node = node.rightChild;
+            else
+                node = node.leftChild;
+        }
+        return false;
+    }
+
+    /*
+    *  recusrive search
+     */
     private boolean search(BinaryTreeNode node,int key)
     {
         if(node == null)
@@ -81,6 +102,37 @@ public class BinarySearchTree
                     return  search(node.rightChild, key);
                 else
                    return search(node.leftChild, key);
+            }
+        }
+    }
+
+    public void add(int key)
+    {
+        BinaryTreeNode node = root;
+        if (root == null)
+        {
+            root = new BinaryTreeNode(key);
+            return;
+        }
+
+        while (node != null)
+        {
+            if (key > node.key)
+            {
+                if (node.rightChild == null)
+                {
+                    node.rightChild = new BinaryTreeNode(key);
+                    break;
+                }else
+                    node = node.rightChild;
+            }else
+            {
+                if (node.leftChild == null)
+                {
+                    node.leftChild = new BinaryTreeNode(key);
+                    break;
+                }else
+                    node = node.leftChild;
             }
         }
     }

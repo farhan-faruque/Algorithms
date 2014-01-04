@@ -6,13 +6,14 @@ public class TreeTest
 	{
 
         BinarySearchTree bst = new BinarySearchTree();
-        bst.insert(10);
-        bst.insert(12);
-        bst.insert(8);
+        bst.add(10);
+        bst.add(12);
+        bst.add(8);
+        bst.add(15);
         bst.show();
         System.out.print("\n"+bst.getMinimum());
 
-        System.out.print("\n"+bst.getMaximum());
+        System.out.print("\n"+bst.find(14));
 	}
 
 }
