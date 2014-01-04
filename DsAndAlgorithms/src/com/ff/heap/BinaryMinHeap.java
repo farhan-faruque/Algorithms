@@ -142,8 +142,14 @@ public class BinaryMinHeap {
 		return (heapSize == 0);
 	}
 
-	public class HeapException extends RuntimeException
+	public static class HeapException extends RuntimeException
 	{
+		/**
+		 * serial version
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public HeapException(String message)
 		{
 			super(message);

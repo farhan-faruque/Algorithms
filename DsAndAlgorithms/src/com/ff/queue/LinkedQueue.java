@@ -21,7 +21,7 @@ public class LinkedQueue<T> implements Queue<T>
 	}
 
 	@Override
-	public void enque(T t) 
+	public void enque(T t)
 	{
 		if(t == null)
 			throw new NullPointerException();
@@ -70,9 +70,6 @@ public class LinkedQueue<T> implements Queue<T>
 			System.out.print(tempNode.getInfo().toString()+" ");
 			tempNode = tempNode.next;					
 		}while (tempNode != null);
-//		if(tempNode != null)
-//			System.out.print(tempNode.getInfo().toString()+" ");		
-
 	}
 
 }
