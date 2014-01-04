@@ -11,6 +11,16 @@ Data Structure and Algorithms (JAVA)
   *Doubly Circular Linked list.
 
 ##Tree
+*Binary Serach tree
+
+## Stack
+*Stack With Linked list
+
+## Queue
+*Queue with Linked list
+
+##Heap
+* Minimum Binary Heap
 
 ##Graph
 
