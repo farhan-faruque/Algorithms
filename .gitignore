@@ -7,5 +7,6 @@
 *.iml
 *.idea/
 *.settings/
+out/
 
 
