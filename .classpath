@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Data-Structure-and-Algorithms/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="Data-Structure-and-Algorithms/out/production/Data-Structure-and-Algorithms"/>
+</classpath>
