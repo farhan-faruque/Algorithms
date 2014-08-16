@@ -1,12 +1,12 @@
 package me.farhan.tree.bst;
 
-public class Node 
+public class Node<T extends Comparable<T>>
 {
-	int key;
-	Node left;
-	Node right;
+	T key;
+	Node<T> left;
+	Node<T> right;
 	
-	public Node(int key) 
+	public Node(T key) 
 	{
 		this.key = key;
 		left = null;
