@@ -1,9 +1,8 @@
 package me.farhan.tree.bst;
 
-
 public class BST<T extends Comparable<T>> {
 
-	private Node<T> root;
+	private BstNode<T> root;
 
 	/*
 	 * find the key
@@ -11,7 +10,7 @@ public class BST<T extends Comparable<T>> {
 	 */
 	public boolean findNr(T key) 
 	{
-		Node<T> current = root;
+		BstNode<T> current = root;
 		while (current != null) 
 		{
 			if(key.compareTo(current.key) == 0)
@@ -30,7 +29,7 @@ public class BST<T extends Comparable<T>> {
 
 	}
 
-	private boolean findHelper(Node<T> node,T key) 
+	private boolean findHelper(BstNode<T> node,T key) 
 	{
 		if(node == null)
 			return false;
@@ -50,7 +49,7 @@ public class BST<T extends Comparable<T>> {
 	public void insert(T data) 
 	{
 		if(root == null)
-			root = new Node<T>(data);
+			root = new BstNode<T>(data);
 		else 
 			insertHelper(root, data);
 	}
@@ -61,11 +60,11 @@ public class BST<T extends Comparable<T>> {
 	{
 		if(root == null)
 		{
-			root = new Node<T>(data);
+			root = new BstNode<T>(data);
 			return;
 		}
 
-		Node<T> current = root;
+		BstNode<T> current = root;
 		while (current != null) 
 		{
 			if(current.key == data)
@@ -73,13 +72,13 @@ public class BST<T extends Comparable<T>> {
 			else if(current.key .compareTo(data) >0)
 			{
 				if(current.left == null)
-					current.left = new Node<T>(data);
+					current.left = new BstNode<T>(data);
 				else 
 					current = current.left;
 			}else 
 			{
 				if(current.right == null)
-					current.right = new Node<T>(data);
+					current.right = new BstNode<T>(data);
 				else
 					current = current.right;
 			}
@@ -89,21 +88,21 @@ public class BST<T extends Comparable<T>> {
 	/*
 	 * add recursive
 	 */
-	private void insertHelper(Node<T> root,T data) 
+	private void insertHelper(BstNode<T> root,T data) 
 	{
 		if(root.key.compareTo(data) == 0)
 			return;
 		else if(root.key.compareTo(data) > 0)
 		{
 			if(root.left == null)
-				root.left = new Node<T>(data);
+				root.left = new BstNode<T>(data);
 			else
 				insertHelper(root.left, data);
 		}
 		else 
 		{
 			if(root.right == null)
-				root.right = new Node<T>(data);
+				root.right = new BstNode<T>(data);
 			else
 				insertHelper(root.right, data);
 		}
@@ -114,7 +113,7 @@ public class BST<T extends Comparable<T>> {
 		traverseHelper(root);
 	}
 
-	private void traverseHelper(Node<T> root) 
+	private void traverseHelper(BstNode<T> root) 
 	{
 		if (root == null) 
 			return;
@@ -134,79 +133,42 @@ public class BST<T extends Comparable<T>> {
 
 	}
 	//minimum of a specific node
-	private Node<T> min(Node<T> root) 
+	private BstNode<T> min(BstNode<T> root) 
 	{
 		if(root.left == null) return root;
 		else return min(root.left);
 	}
-
-	/*private Node<T> deleteHelper(Node<T> root,T t) 
+	public void remove( T t )
 	{
-		if(root == null)
-			return root;
-		else if(t.equals(root.key))
-		{
-			if(root.left == null && root.right == null)
-				return null;
-			else if(root.left == null) 
-			{
-				Node<T> temp  = root.right;
-				root = null;
-				return temp;
-			}
-			else if(root.right == null)
-			{
-				Node<T> temp  = root.left;
-				root = null;
-				return temp;
-			}
-
-			Node<T> tmp = min(root.right);
-			root.key = tmp.key;
-			root.right = deleteHelper(root.right, tmp.key);
-			return root;
-		}else if(t.compareTo(root.key) < 0)
-		{
-			root.left = deleteHelper(root.left, t);
-			return root;
-		}else {
-			root.left = deleteHelper(root.right, t);
-			return root;
-		}
-
+		root = remove( t, root );
 	}
-*/
-	  public void remove( T t )
-      {
-          root = remove( t, root );
-      }
 
-    private Node<T> remove( T x, Node<T> root )
-    {
-        if( root == null )
-            return root;   // Item not found; do nothing
-        if( x.compareTo( root.key ) < 0 )
-        	root.left = remove( x, root.left );
-        else if( x.compareTo( root.key ) > 0 )
-        	root.right = remove( x, root.right );
-        else if( root.left != null && root.right != null ) // Two children
-        {
-        	root.key = findMin(root.right).key;
-            root.right = remove( root.key, root.right );
-        }
-        else
-            root = ( root.left != null ) ? root.left : root.right;
-        return root;
-    }
-    
-    private Node<T> findMin( Node<T> t )
-    {
-        if( t == null )
-            return null;
-        else if( t.left == null )
-            return t;
-        return findMin( t.left );
-    }
+	private BstNode<T> remove( T x, BstNode<T> root )
+	{
+		if( root == null )
+			return root;   // Item not found; do nothing
+		if( x.compareTo( root.key ) < 0 )
+			root.left = remove( x, root.left );
+		else if( x.compareTo( root.key ) > 0 )
+			root.right = remove( x, root.right );
+		else if( root.left != null && root.right != null ) // Two children
+		{
+			root.key = findMin(root.right).key;
+			root.right = remove( root.key, root.right );
+		}
+		else
+			root = ( root.left != null ) ? root.left : root.right;
+		return root;
+	}
+
+	private BstNode<T> findMin( BstNode<T> t )
+	{
+		if( t == null )
+			return null;
+		else if( t.left == null )
+			return t;
+		return findMin( t.left );
+	}
 	public static void main(String[] args) 
 	{
 		BST<Integer> bst = new BST<Integer>();
