@@ -1,19 +1,46 @@
 package me.farhan.stack;
 
-public class StackLinkedImpl<T> implements Stack<T> {
+import me.farhan.tree.Node;
 
-	class Node
+public class StackLinkedImpl<T extends Node<V>, V> implements Stack<T,V> {
+
+	class StackNode<T extends Node<V>, V>
 	{
-		T t;
-		Node next;
-		public Node(T t) 
+		Node<V> t;
+		StackNode<T,V> next;
+		public StackNode(Node<V> t) 
 		{
 			this.t = t;
 			next = null;
 		}
 	}
+
+	@Override
+	public void push(Node<V> t) 
+	{
+		
+		
+	}
+
+	@Override
+	public Node<V> pop() {
 	
-	private Node root;
+		return null;
+	}
+
+	@Override
+	public Node<V> peek() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	/*private  StackNode<T> root;
 	public StackLinkedImpl()
 	{
 		root = null;
@@ -70,6 +97,12 @@ public class StackLinkedImpl<T> implements Stack<T> {
 		stack.push(7);
 		System.out.print(stack.pop());
 	}
+
+	@Override
+	public void push(Node t) {
+		// TODO Auto-generated method stub
+		
+	}*/
 
 
 }

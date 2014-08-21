@@ -1,9 +1,11 @@
 package me.farhan.stack;
 
-public interface Stack<T>
+import me.farhan.tree.Node;
+
+public interface Stack<T extends Node<V>, V>
 {
-	void push(T t);
-	T pop();
-	T peek();
+	void push(Node<V> t);
+	Node<V> pop();
+	Node<V> peek();
 	boolean isEmpty();
 }
