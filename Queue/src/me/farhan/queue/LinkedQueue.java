@@ -1,5 +1,4 @@
 package me.farhan.queue;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.Header;
 
 public class LinkedQueue<T> implements Queue<T> {
 

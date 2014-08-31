@@ -9,7 +9,7 @@ public class LinkedQueueTest {
 			s.enque("Farhan");
 			s.enque("Faruque");
 			System.out.println(s.toString());
-			System.out.println(s.peek());
+			System.out.println(s.isEmpty());
 		} catch (Exception e) {
 			
 		}
